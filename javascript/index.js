@@ -13,11 +13,10 @@ const scoreboard = new Scoreboard(human, pc)
 // cached DOM elements
 const buttons = document.querySelectorAll('#button-container > button')
 
-console.log(String(buttons)) // not a true array
-
 function bindEvents() {
   // a little contrived but it's cool that it can be done this way
   let btnArr = Array.from(buttons, btn => btn.addEventListener('click', function(e) {
+    scoreboard.hideResult()
     scoreboard.matchup(e.target.dataset.pick, pc.play()) // human answer, pc answer
   }))
 }

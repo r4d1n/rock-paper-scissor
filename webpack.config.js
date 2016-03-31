@@ -1,6 +1,3 @@
-
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-
 module.exports = {
   entry: "./javascript/index.js",
   output: {
@@ -13,4 +10,4 @@ module.exports = {
       { test: /\.scss$/, loader: 'style-loader!css-loader!sass-loader' }
     ]
   }
-};
+}
