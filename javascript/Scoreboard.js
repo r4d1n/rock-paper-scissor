@@ -51,7 +51,6 @@ export class Scoreboard {
 
   toastResult(result, p1, p2) { // result can be win, lose, or draw
     let feedback = document.querySelector('.feedback')
-    console.log(feedback.querySelector('h3'))
 
     if (feedback && result === 'win') {
       feedback.querySelector('h3').innerHTML = `<span class='human'>${p1}</span> <br/> beats <br/> <span class='machine'>${p2}</span>`
@@ -72,7 +71,7 @@ export class Scoreboard {
   hideResult() {
     let feedbackDivs = document.querySelectorAll('.feedback')
     // console.log('feedback divs', feedbackDivs.toString()) // not a real array
-    ;Array.from(feedbackDivs).forEach((el) => {
+    ;Array.from(feedbackDivs, (el) => {
       if([...el.classList].includes('visible')) { // same thing, also not a real array
       el.classList.remove('visible')
     }
