@@ -13,10 +13,6 @@ export class Scoreboard {
     this.winMap.set('paper', 'rock')
     this.winMap.set('scissor', 'paper')
 
-    // for (let entry of this.winMap) {
-    //   console.log(entry)
-    // }
-
   }
 
   matchup(humanAnswer, machineAnswer) {
@@ -49,29 +45,29 @@ export class Scoreboard {
     }
   }
 
-  toastResult(result, p1, p2) { // result can be win, lose, or draw
+  toastResult(result, choice1, choice2) { // result can be win, lose, or draw
     let feedback = document.querySelector('.feedback')
 
     if (feedback && result === 'win') {
-      feedback.querySelector('h3').innerHTML = `<span class='human'>${p1}</span> <br/> beats <br/> <span class='machine'>${p2}</span>`
+      feedback.querySelector('h3').innerHTML = `<span class='human'>${choice1}</span> <br/> beats <br/> <span class='machine'>${choice2}</span>`
       feedback.classList.toggle('visible')
     }
 
     if (feedback && result === 'lose') {
-      feedback.querySelector('h3').innerHTML = `<span class='machine'>${p1}</span> <br/> beats <br/> <span class='human'>${p2}</span>`
+      feedback.querySelector('h3').innerHTML = `<span class='machine'>${choice1}</span> <br/> beats <br/> <span class='human'>${choice2}</span>`
       feedback.classList.toggle('visible')
     }
 
     if (feedback && result === 'draw') {
-      feedback.querySelector('h3').innerHTML = `<span class='human'>${p1}</span> <br/> draws <br/> <span class='machine'>${p1}</span>`
+      feedback.querySelector('h3').innerHTML = `<span class='human'>${choice1}</span> <br/> draws <br/> <span class='machine'>${choice2}</span>`
       feedback.classList.toggle('visible')
     }
   }
 
   hideResult() {
     let feedbackDivs = document.querySelectorAll('.feedback')
-    // console.log('feedback divs', feedbackDivs.toString()) // not a real array
-    ;Array.from(feedbackDivs, (el) => {
+
+    Array.from(feedbackDivs, (el) => {
       if([...el.classList].includes('visible')) { // same thing, also not a real array
       el.classList.remove('visible')
     }
@@ -98,12 +94,12 @@ resetGame() {
 
 // getters and setters
 
-get round() { return this.__round }
-set round(int) { this.__round = int }
+  get round() { return this.__round }
+  set round(int) { this.__round = int }
 
-get p1Score() { return this.__player1.score }
-set p1Score(int) { this.__player1.score = int }
+  get p1Score() { return this.__player1.score }
+  set p1Score(int) { this.__player1.score = int }
 
-get p2Score() { return this.__player2.score }
-set p2Score(int) { this.__player2.score = int }
+  get p2Score() { return this.__player2.score }
+  set p2Score(int) { this.__player2.score = int }
 }

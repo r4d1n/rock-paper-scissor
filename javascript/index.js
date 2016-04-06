@@ -10,7 +10,7 @@ const human = new Player()
 const pc = new Adversary()
 const scoreboard = new Scoreboard(human, pc)
 
-// cached DOM elements
+// DOM elements array-like
 const buttons = document.querySelectorAll('#button-container > button')
 
 function bindEvents() {
